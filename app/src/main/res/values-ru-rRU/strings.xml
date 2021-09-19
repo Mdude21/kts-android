@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">StravaClient</string>
-    <string name="button_text" translatable="false">Пропустить</string>
-    <string name="welcome_text" translatable="false">Добро пожаловать в Strava!</string>
-</resources>
