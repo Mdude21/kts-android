@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">StravaClient</string>
+    <string name="button_text" translatable="false">Skip</string>
+    <string name="welcome_text" translatable="false">Welcome to Strava!</string>
+    <string name="todo">TODO</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="no_account_yet_create_one" translatable="false">No account yet? Create one</string>
+    <string name="button">Login</string>
+    <string name="password">Password</string>
+    <string name="this_fragment_is_under_revision_come_back_later">This fragment is under revision. Come back later</string>
+</resources>
