@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">StravaClient</string>
+    <string name="onboarding_fragment_button_text">Пропустить</string>
+    <string name="todo">TODO</string>
+    <string name="login_fragment_hint_email">Почта</string>
+    <string name="login_fragment_text_create">До сих пор нет аккаунта? Создай его</string>
+    <string name="login_fragment_button">Войти</string>
+    <string name="login_fragment_hint_password">Пароль</string>
+    <string name="this_fragment_is_under_revision_come_back_later">Этот фрагмент на доработке. Заходите позже</string>
+    <string name="onboarding_fragment_welcome_text">Добро пожаловать в Strava!</string>
+</resources>
