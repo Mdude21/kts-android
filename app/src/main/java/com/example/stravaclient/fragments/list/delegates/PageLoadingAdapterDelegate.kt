@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stravaclient.R
 import com.example.stravaclient.models.LoadingItem
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
-import kotlinx.android.extensions.LayoutContainer
 
 class PageLoadingAdapterDelegate : AbsListItemAdapterDelegate<LoadingItem, Any, PageLoadingAdapterDelegate.Holder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup): Holder {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_loading_page, parent, false)
@@ -28,6 +28,6 @@ class PageLoadingAdapterDelegate : AbsListItemAdapterDelegate<LoadingItem, Any, 
     }
 
     class Holder(
-        override val containerView: View
-    ) : RecyclerView.ViewHolder(containerView), LayoutContainer
+        private val containerView: View
+    ) : RecyclerView.ViewHolder(containerView)
 }

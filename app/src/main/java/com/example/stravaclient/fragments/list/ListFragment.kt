@@ -11,6 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.stravaclient.R
 import com.example.stravaclient.databinding.FragmentListBinding
 import com.example.stravaclient.fragments.list.delegates.PostItemDelegate
+import com.example.stravaclient.models.LoadingItem
 import com.example.stravaclient.models.PostItem
 import com.example.stravaclient.utils.PaginationScrollListener
 import com.example.stravaclient.utils.autoCleared
@@ -18,6 +19,7 @@ import com.example.stravaclient.utils.autoCleared
 class ListFragment : Fragment(R.layout.fragment_list){
 
     private val binding: FragmentListBinding by viewBinding(FragmentListBinding::bind)
+
     private var mainAdapter : MainDelegatesListAdapter by autoCleared()
     val viewModel : PostItemViewModel by viewModels()
 
@@ -41,6 +43,7 @@ class ListFragment : Fragment(R.layout.fragment_list){
             addOnScrollListener(
                 PaginationScrollListener(
                     layoutManager = layoutManager as LinearLayoutManager,
+                    requestNextItems = ::loadMoreItems,
                     visibilityThreshold = 5
                 )
             )
@@ -51,5 +54,14 @@ class ListFragment : Fragment(R.layout.fragment_list){
         viewModel.inputListData.observe(viewLifecycleOwner, {
             mainAdapter.items = it
         })
+    }
+
+    private fun loadMoreItems() {
+        val newItems = mainAdapter.items.toMutableList().apply {
+            if (lastOrNull() is LoadingItem) {
+                removeLastOrNull()
+            }
+        }
+        mainAdapter.items = newItems
     }
 }

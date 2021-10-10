@@ -11,18 +11,15 @@ class LoginViewModel : ViewModel() {
 
     val inputValidData : LiveData<Boolean> = _inputValidData
 
-    fun validateInput(email: String, password: String)
-    {
+    fun validateInput(email: String, password: String) {
         _inputValidData.value = isEmailValid(email) && isPasswordValid(password)
     }
 
-    private fun isEmailValid(email: String) : Boolean
-    {
+    private fun isEmailValid(email: String) : Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-    private fun isPasswordValid(password: String) : Boolean
-    {
+    private fun isPasswordValid(password: String) : Boolean {
         return password.length >= 8
     }
 }

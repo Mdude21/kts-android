@@ -1,51 +1,40 @@
 package com.example.stravaclient.fragments.login
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.stravaclient.R
+import com.example.stravaclient.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
-    private var buttonLogin : Button? = null
-    private var passwordText : EditText? = null
-    private var emailText : EditText? = null
+    private val binding: FragmentLoginBinding by viewBinding(FragmentLoginBinding::bind)
+
     private val viewModel : LoginViewModel by viewModels()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        passwordText = view?.findViewById(R.id.editTextPassword)
-        emailText = view?.findViewById(R.id.editTextEmailAddress)
-        buttonLogin = view?.findViewById(R.id.buttonLogin)
 
-        emailText?.doAfterTextChanged {
+        binding.editTextEmailAddress.doAfterTextChanged {
             validateViewModel()
         }
-        passwordText?.doAfterTextChanged {
+        binding.editTextPassword.doAfterTextChanged {
             validateViewModel()
         }
         viewModel.inputValidData.observe(viewLifecycleOwner, {inputValidData ->
-            buttonLogin?.isEnabled = inputValidData
+            binding.buttonLogin.isEnabled = inputValidData
         })
-        buttonLogin?.setOnClickListener {
+        binding.buttonLogin.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_MainFragment)
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        buttonLogin = null
-        passwordText = null
-        emailText = null
-    }
-
-    private fun validateViewModel(){
-        val email = emailText?.text.toString()
-        val pass = passwordText?.text.toString()
+    private fun validateViewModel() {
+        val email = binding.editTextEmailAddress.text.toString()
+        val pass = binding.editTextPassword.text.toString()
         viewModel.validateInput(email, pass)
     }
 }

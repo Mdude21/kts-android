@@ -1,14 +1,12 @@
 package com.example.stravaclient.fragments.list.delegates
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stravaclient.R
+import com.example.stravaclient.databinding.ItemPostBinding
 import com.example.stravaclient.models.PostItem
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.item_post.view.*
 
 class PostItemDelegate(private val callback: Callback) : AbsListItemAdapterDelegate<Any, Any, PostItemDelegate.ViewHolder>(){
 
@@ -19,7 +17,8 @@ class PostItemDelegate(private val callback: Callback) : AbsListItemAdapterDeleg
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_post, parent, false)
-        return ViewHolder(itemView, callback)
+        val binding:ItemPostBinding = ItemPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding, callback)
     }
 
     override fun onBindViewHolder(
@@ -31,21 +30,27 @@ class PostItemDelegate(private val callback: Callback) : AbsListItemAdapterDeleg
     }
 
     inner class ViewHolder(
-        override val containerView: View, private val callback: Callback
-    ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
+        private val binding: ItemPostBinding,
+        private val callback: Callback
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         private var currentItem: PostItem? = null
 
-        fun bind(item: PostItem) = with(containerView) {
-            currentItem = item
-            postUser.text = item.user
-            likeCount.text = item.like.toString()
-            commentCount.text = item.comment.toString()
-            postDate.text = item.date
-            post.text = item.post
-            likeButton.setOnClickListener{
-                callback.onLikeClick(item)
+        init {
+            binding.likeButton.setOnClickListener{
+                currentItem?.let { currentItem ->
+                    callback.onLikeClick(currentItem)
+                }
             }
+        }
+
+        fun bind(item: PostItem) = with(binding) {
+            currentItem = item
+            binding.postUser.text = item.user
+            binding.likeCount.text = item.like.toString()
+            binding.commentCount.text = item.comment.toString()
+            binding.postDate.text = item.date
+            binding.post.text = item.post
         }
     }
 

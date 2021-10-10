@@ -12,13 +12,13 @@
 
     <ImageView
         android:id="@+id/logoImage"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_vertical"
-        app:srcCompat="@drawable/ic__09595"
-        android:contentDescription="@string/todo" />
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/todo"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/logo_strava" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -14,7 +14,7 @@
         android:id="@+id/logoImage"
         android:layout_width="312dp"
         android:layout_height="185dp"
-        app:srcCompat="@drawable/ic__09595" />
+        app:srcCompat="@drawable/logo_strava" />
 
     <TextView
 
