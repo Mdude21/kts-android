@@ -1,15 +1,17 @@
 package com.example.stravaclient.fragments.list
 
+import android.content.ClipData
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.stravaclient.models.CommentItem
+import com.example.stravaclient.models.LoadingItem
 import com.example.stravaclient.models.PostItem
 import java.util.*
 
 class PostItemViewModel : ViewModel(){
 
-    private val _inputListDada = MutableLiveData<List<Any>> (
+    private val _inputListData = MutableLiveData<List<Any>> (
         generateItems()
     )
 
@@ -36,12 +38,12 @@ class PostItemViewModel : ViewModel(){
         return defaultItems
     }
 
-    val inputListData : LiveData<List<Any>> = _inputListDada
+    val inputListData : LiveData<List<Any>> = _inputListData
 
     fun onLikeClick(item: PostItem) {
         item.like++
-        _inputListDada.value?.let {
-            _inputListDada.value = it
+        _inputListData.value?.let {
+            _inputListData.value = it
         }
     }
 }

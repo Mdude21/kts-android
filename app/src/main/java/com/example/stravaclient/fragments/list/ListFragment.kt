@@ -11,10 +11,12 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.stravaclient.R
 import com.example.stravaclient.databinding.FragmentListBinding
 import com.example.stravaclient.fragments.list.delegates.PostItemDelegate
+import com.example.stravaclient.models.CommentItem
 import com.example.stravaclient.models.LoadingItem
 import com.example.stravaclient.models.PostItem
 import com.example.stravaclient.utils.PaginationScrollListener
 import com.example.stravaclient.utils.autoCleared
+import java.util.*
 
 class ListFragment : Fragment(R.layout.fragment_list){
 
@@ -26,6 +28,7 @@ class ListFragment : Fragment(R.layout.fragment_list){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initList()
+        loadMoreItems()
     }
 
     private fun initList() {
@@ -44,7 +47,7 @@ class ListFragment : Fragment(R.layout.fragment_list){
                 PaginationScrollListener(
                     layoutManager = layoutManager as LinearLayoutManager,
                     requestNextItems = ::loadMoreItems,
-                    visibilityThreshold = 5
+                    visibilityThreshold = 0
                 )
             )
 
@@ -56,12 +59,32 @@ class ListFragment : Fragment(R.layout.fragment_list){
         })
     }
 
+    private fun getDefaultItems() = List(20) {
+        when((1..2).random()) {
+            1 -> PostItem(
+                user = "Username 1",
+                date = "today",
+                post = "Place to post",
+                like = 0,
+                comment = 0,
+                uuid = UUID.randomUUID()
+            )
+            2 -> CommentItem(
+                user = "Username 2",
+                date = "yesterday",
+                post = "Place to comment",
+                uuid = UUID.randomUUID()
+            )
+            else -> error("Wrong random number")
+        }
+    }
+
     private fun loadMoreItems() {
         val newItems = mainAdapter.items.toMutableList().apply {
             if (lastOrNull() is LoadingItem) {
                 removeLastOrNull()
             }
-        }
+        } + getDefaultItems() + LoadingItem()
         mainAdapter.items = newItems
     }
 }

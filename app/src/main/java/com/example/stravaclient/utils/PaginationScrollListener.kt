@@ -26,6 +26,6 @@ class PaginationScrollListener (
         }
 
         companion object {
-            private const val DEFAULT_VISIBILITY_THRESHOLD = 5
+            private const val DEFAULT_VISIBILITY_THRESHOLD = 0
         }
 }
