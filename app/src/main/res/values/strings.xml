@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">StravaClient</string>
+    <string name="fragment_onboarding_button">Skip</string>
+    <string name="fragment_onboarding_welcome_text">Welcome to Strava!</string>
+    <string name="todo">TODO</string>
+    <string name="fragment_login_hint_email">Email</string>
+    <string name="fragment_login_create_one">No account yet? Create one</string>
+    <string name="fragment_login_button_login">Login</string>
+    <string name="fragment_login_hint_password">Password</string>
+    <string name="this_fragment_is_under_revision_come_back_later">This fragment is under revision. Come back later</string>
+    <string name="item_post_post">Post</string>
+    <string name="item_post_user">User</string>
+    <string name="item_post_date">Date</string>
+    <string name="item_post_like_count">0</string>
+    <string name="item_post_comment_count">0</string>
+    <string name="item_comment_name">Name</string>
+    <string name="item_comment_date">Date</string>
+    <string name="item_comment_post">Post</string>
+    <string name="auth_canceled">Authentication failed</string>
+    <string name="search_input_hint">Enter username</string>
+    <string name="search_button">Search</string>
+    <string name="dateTextAthleteItem">Date</string>
+    <string name="describes">Describes</string>
+    <string name="followers">Followers</string>
+    <string name="show_my_activities">Show my activities</string>
+    <string name="push">Error to connection</string>
+    <string name="login">Login</string>
+    <string name="time">Time</string>
+    <string name="distance">Distance</string>
+</resources>
