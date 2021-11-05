@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">StravaClient</string>
+    <string name="fragment_onboarding_button">Пропустить</string>
+    <string name="fragment_onboarding_welcome_text">Добро пожаловать в Strava!</string>
+    <string name="todo">TODO</string>
+    <string name="fragment_login_hint_email">Почта</string>
+    <string name="fragment_login_create_one">До сих пор нет аккаунта? Создай его</string>
+    <string name="fragment_login_button_login">Войти</string>
+    <string name="fragment_login_hint_password">Пароль</string>
+    <string name="this_fragment_is_under_revision_come_back_later">Этот фрагмент на доработке. Заходите позже</string>
+    <string name="item_post_post">Заголовок</string>
+    <string name="item_post_user">Пользователь</string>
+    <string name="item_post_date">Дата</string>
+    <string name="item_post_like_count">0</string>
+    <string name="item_post_comment_count">0</string>
+    <string name="item_comment_name">Имя</string>
+    <string name="item_comment_date">Дата</string>
+    <string name="item_comment_post">Заголовок</string>
+    <string name="auth_canceled">Аутентификация не выполнена</string>
+    <string name="search_input_hint">Введите логин</string>
+    <string name="search_button">Поиск</string>
+    <string name="dateTextAthleteItem">Дата</string>
+    <string name="describes">Друзья</string>
+    <string name="followers">Подписчики</string>
+    <string name="show_my_activities">Показать мои активности</string>
+    <string name="push">Ошибка соединения</string>
+    <string name="login">Войти</string>
+    <string name="time">Время</string>
+    <string name="distance">Расстояние</string>
+</resources>

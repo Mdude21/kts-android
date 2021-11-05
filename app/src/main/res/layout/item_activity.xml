@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="219dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/item_post_user"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toEndOf="@+id/postAvatar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="218dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:letterSpacing="0.02"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/item_post_date"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/username"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
+
+    <TextView
+        android:id="@+id/likeCount"
+        android:layout_width="61dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center"
+        android:text="@string/item_post_like_count"
+        app:layout_constraintBottom_toBottomOf="@+id/likeButton"
+        app:layout_constraintStart_toEndOf="@+id/likeButton"
+        app:layout_constraintTop_toTopOf="@+id/likeButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/commentCount"
+        android:layout_width="70dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="44dp"
+        android:gravity="center"
+        android:text="@string/item_post_comment_count"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toEndOf="@+id/commentButton"
+        app:layout_constraintTop_toBottomOf="@+id/timeCount"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/type_activity"
+        android:layout_width="219dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        tools:text="@string/item_post_post" />
+
+    <ImageButton
+        android:id="@+id/likeButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="62dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/commentCount"
+        app:srcCompat="@drawable/ic_like"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/commentButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="49dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/likeCount"
+        app:layout_constraintTop_toTopOf="@+id/likeCount"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/comment_svgrepo_com"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/postAvatar"
+        android:layout_width="101dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/avatar"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/distanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/distance"
+        app:layout_constraintStart_toStartOf="@+id/type_activity"
+        app:layout_constraintTop_toBottomOf="@+id/type_activity" />
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="116dp"
+        android:text="@string/time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/distanceText" />
+
+    <TextView
+        android:id="@+id/distanceCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/likeButton"
+        app:layout_constraintStart_toStartOf="@+id/distanceText"
+        app:layout_constraintTop_toTopOf="@+id/likeCount"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/timeCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/timeText"
+        app:layout_constraintTop_toBottomOf="@+id/timeText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
